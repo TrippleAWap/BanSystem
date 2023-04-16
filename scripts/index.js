@@ -1,17 +1,5 @@
 import { world, system, MinecraftDimensionTypes } from "@minecraft/server"
 import { Database } from "./database"
-function getScore(player, objective, rNull) {
-    try {
-        if (typeof player == "string") return world.scoreboard.getObjective(objective).getScore(world.scoreboard.getObjective(objective).getParticipants().find((p) => p.displayName === player))
-        return world.scoreboard.getObjective(objective).getScore(player.scoreboard)
-    } catch {
-        return rNull ? null : 0
-    }
-}
-function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
 const dB = new Database("ban")
 if (!dB.has("banned")) {
     dB.all.banned = []
@@ -46,6 +34,7 @@ world.events.beforeChat.subscribe((data) => {
     const { sender: player, message } = data
     const args = message.split(" ")
     if (!message.startsWith(prefix)) return
+    if (!player.hasTag("staff")) return player.sendMessage(`§cYou are not allowed to use this command!`)
     data.cancel = true
     switch (args[0].replace(prefix, "")) {
         case "ban":
