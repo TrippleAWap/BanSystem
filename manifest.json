@@ -1,0 +1,52 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "[ NEW ] Ban System",
+		"description": "This pack was made by TrippleAWap#2626",
+		"min_engine_version": [
+			1,
+			19,
+			63
+		],
+		"uuid": "ae4f4dbf-5644-46ef-acf3-8cca58213867",
+		"version": [
+			1,
+			0,
+			2
+		]
+	},
+	"modules": [
+		{
+			"description": "make it work on realm",
+			"type": "data",
+			"uuid": "c8f33add-6ba7-4d52-a628-23890e7b14f1",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"description": "Gametest Framework Needs To Be Enabled",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "a657103f-c4c8-46e2-a652-56beb15845fa",
+			"version": [
+				1,
+				0,
+				0
+			],
+			"entry": "index.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.1.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.0.0-beta"
+		}
+	]
+}
